@@ -10,7 +10,7 @@ AWS.config.credentials = credentials;
 const sqs = new AWS.SQS({ apiVersion: '2012-11-05' });
 
 const params = {
-  QueueName: 'SQS_QUEUE_NODE',
+  QueueName: 'SQS_QUEUE_DEADLETTER',
   Attributes: {
     'DelaySeconds': '5',
     'MessageRetentionPeriod': '86400',

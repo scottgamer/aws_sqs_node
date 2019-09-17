@@ -18,7 +18,7 @@ const params = {
   ],
   QueueUrl: queueURL,
   VisibilityTimeout: 20,
-  WaitTimeSeconds: 0
+  WaitTimeSeconds: 0 // non-zero value for long-polling
 };
 
 sqs.receiveMessage(params, (err, data) => {

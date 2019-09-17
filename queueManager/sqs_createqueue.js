@@ -13,7 +13,8 @@ const params = {
   QueueName: 'SQS_QUEUE_NODE',
   Attributes: {
     'DelaySeconds': '5',
-    'MessageRetentionPeriod': '86400'
+    'MessageRetentionPeriod': '86400',
+    'ReceiveMessageWaitTimeSeconds': '20', // Long polling
   }
 };
 
@@ -24,3 +25,20 @@ sqs.createQueue(params, (err, data) => {
     console.log("Success", data.QueueUrl);
   }
 });
+
+// To add attributes to existing queue
+
+// const params = {
+//   Attributes: {
+//     "ReceiveMessageWaitTimeSeconds": "20",
+//   },
+//   QueueUrl: "SQS_QUEUE_URL"
+// };
+
+// sqs.setQueueAttributes(params, function (err, data) {
+//   if (err) {
+//     console.log("Error", err);
+//   } else {
+//     console.log("Success", data);
+//   }
+// });
